@@ -227,6 +227,10 @@ Regras adicionais:
 - API `fetch` do navegador;
 - sem framework de UI e sem biblioteca obrigatória de estado.
 
+#### Preferências de TypeScript
+
+- Usar declarações `type` em vez de `interface` na criação de tipos do projeto.
+
 ### 6.2. Organização sugerida
 
 ```text

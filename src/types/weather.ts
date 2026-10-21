@@ -1,4 +1,4 @@
-export interface LocationData {
+export type LocationData = {
   name: string
   latitude: number
   longitude: number
@@ -6,7 +6,7 @@ export interface LocationData {
   timezone: string
 }
 
-export interface CurrentWeather {
+export type CurrentWeather = {
   time: string
   temperature: number
   temperatureUnit: string
@@ -24,12 +24,12 @@ export interface CurrentWeather {
   weatherCode: number
 }
 
-export interface WeatherSearchResult {
+export type WeatherSearchResult = {
   location: LocationData
   weather: CurrentWeather
 }
 
-export interface OpenMeteoLocationResult {
+export type OpenMeteoLocationResult = {
   name?: string
   latitude?: number
   longitude?: number
@@ -37,11 +37,11 @@ export interface OpenMeteoLocationResult {
   timezone?: string
 }
 
-export interface OpenMeteoGeocodingResponse {
+export type OpenMeteoGeocodingResponse = {
   results?: OpenMeteoLocationResult[]
 }
 
-export interface OpenMeteoCurrentUnits {
+export type OpenMeteoCurrentUnits = {
   time?: string
   temperature_2m?: string
   relative_humidity_2m?: string
@@ -53,7 +53,7 @@ export interface OpenMeteoCurrentUnits {
   weather_code?: string
 }
 
-export interface OpenMeteoCurrentValues {
+export type OpenMeteoCurrentValues = {
   time?: string
   temperature_2m?: number
   relative_humidity_2m?: number
@@ -65,7 +65,7 @@ export interface OpenMeteoCurrentValues {
   weather_code?: number
 }
 
-export interface OpenMeteoWeatherResponse {
+export type OpenMeteoWeatherResponse = {
   current_units?: OpenMeteoCurrentUnits
   current?: OpenMeteoCurrentValues
 }
