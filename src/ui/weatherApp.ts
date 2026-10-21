@@ -68,7 +68,10 @@ function appendMetric(
 function renderWeatherResult(container: HTMLElement, result: WeatherSearchResult): void {
   const { location, weather } = result
   const resultLayout = createElement('div', 'weather-result')
-  const sidebar = createElement('section', 'weather-summary')
+  const sidebar = createElement(
+    'section',
+    `weather-summary weather-summary--${weather.isDay ? 'day' : 'night'}`,
+  )
   const details = createElement('section', 'weather-details')
   const temperature = createElement(
     'p',
