@@ -1,6 +1,6 @@
 # Projeto: Clima 
 
-Este rojeto vai pegar a cidade e baseado nisso, consultar o clima daquela região, exibindo as principais informações de clima, temperatura, humidade e etc
+Este projeto vai pegar a cidade e baseado nisso, consultar o clima daquela região, exibindo as principais informações de clima, temperatura, umidade e etc
 
 ###Aspectos Técnicos
 
@@ -47,7 +47,7 @@ Informações que PRECISAMOS:
 - timezone
 
 #### Para pegar as informações de clima:
-https//:api.open-meteo.com/v1/forecast?latitude={LATITUDE}&longitude={LONGITUDE}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,precipitation,weather_code&timezone={TIMEZONE}
+https//:api.open-meteo.com/v1/forecast?latitude={LATITUDE}&longitude={LONGITUDE}&current=precipitation_probability,temperature_2m,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,precipitation,weather_code&timezone={TIMEZONE}
 
 {LATITUDE} = Latitude
 {LONGITUDE} = Longitude
@@ -55,16 +55,122 @@ https//:api.open-meteo.com/v1/forecast?latitude={LATITUDE}&longitude={LONGITUDE}
 
 Exemplo de resposta:
 
+{
+  "latitude": -22.952549,
+  "longitude": -43.215027,
+  "generationtime_ms": 7.35771656036377,
+  "utc_offset_seconds": -10800,
+  "timezone": "America/Sao_Paulo",
+  "timezone_abbreviation": "GMT-3",
+  "elevation": 12,
+  "current_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "precipitation_probability": "%",
+    "temperature_2m": "°C",
+    "relative_humidity_2m": "%",
+    "apparent_temperature": "°C",
+    "is_day": "",
+    "wind_speed_10m": "km/h",
+    "wind_direction_10m": "°",
+    "precipitation": "mm",
+    "weather_code": "wmo code"
+  },
+  "current": {
+    "time": "2026-10-21T10:30",
+    "interval": 900,
+    "precipitation_probability": 73,
+    "temperature_2m": 23.9,
+    "relative_humidity_2m": 67,
+    "apparent_temperature": 26.2,
+    "is_day": 1,
+    "wind_speed_10m": 10.3,
+    "wind_direction_10m": 121,
+    "precipitation": 0,
+    "weather_code": 3
+  }
+}
 
-####Informação inportante:
-Teremos um arquivo com as funções do OpenMeteo, para que o projeto não faça requisção direta a API mas sim use as funções desse arquivo.
+Informações que precisamos da resposta:
+Na resposta eu tenho 2 itens:
+- current_units tem as unidade de medidas das propriedades
+- current tem os valores das propriedades 
+
+Propriedades obrigatórias:
+- temperature_2m
+- relative_humidity_2m
+- apparent_temperature
+- is_day
+- wind_speed_10m
+- wind_direction_10m
+- precipitation_probability
+
+
+#### Informação inportante:
+Teremos um arquivo com as funções do OpenMeteo, para que o projeto não faça requisição direta a API mas sim use as funções desse arquivo.
 
 Fluxo de pesquisa para receber o nome da cidade e pegar as informações de clima:
 - O usuário digita o nome da cidade 
-- O projeto pega o nome e usa o OpenMeteo para pegar a latitude, longitude e timezone, o projeto usas essas iformações para fazer a requisição e pegar as informações do cliema dessa localização.
-- Caso não ache as informações da cidade, se compotar como se não tivesse achado nada. 
-- Caso ache as informações da cidade mas não as de clima, se compotar como se não tivesse achado nada.
+- O projeto pega o nome e usa o OpenMeteo para pegar a latitude, longitude e timezone, o projeto usas essas informações para fazer a requisição e pegar as informações do clima e dessa localização.
+- Caso não ache as informações da cidade, se comportar como se não tivesse achado nada. 
+- Caso ache as informações da cidade mas não as de clima, se comportar como se não tivesse achado nada.
 
 A busca envolve as 2 requisições (buscar latitude/longitude/timezone + buscar clima), mas para o usuário é uma só, com loading.
 
-As funções do OpenMeteo deevm verificar se os parâmetros vieram, caso contrário, age como se não tivesse vindo.
+As funções do OpenMeteo devem verificar se os parâmetros vieram, caso contrário, age como se não tivesse vindo.
+
+### Apectos visuais (design e UX)
+
+Tem que ter Empty State.
+
+Teremos uma área SUPERIOR centralizada que tem apenas o campo de busca da cidade
+
+O projeto terá um sidebar na esquerda com as seguintes informações:
+- Tempertura
+- Nome da cidade, Código do país
+- Dia atual
+- Se é dia/noite (baseado no is_day)
+- Weather Code
+
+Na área principal:
+- Umidade relativa
+_ Temperatura aparente
+_ Probabilidade de precipitação
+_ Velocidade/Direção do vento
+
+Design geral:
+- O projeto terá um fundo cinza escuro
+- A parte superior não terá background, mas tanto sidebar quanto a área principal ficarão dentro de uma div com a borda arredondada, fundo branco, centralizada e largura máxima de 800px. 
+
+Informações de interpretação sobre o Weather Code:
+WMO Weather interpretation codes (WW)
+Code	Description
+0	Clear sky
+1	Mainly clear
+2	Partly cloudy
+3	Overcast
+45	Fog
+48	Depositing rime fog
+51	Light drizzle
+53	Moderate drizzle
+55	Dense drizzle
+56	Light freezing drizzle
+57	Dense freezing drizzle
+61	Slight rain
+63	Moderate rain
+65	Heavy rain
+66	Light freezing rain
+67	Heavy freezing rain
+71	Slight snowfall
+73	Moderate snowfall
+75	Heavy snowfall
+77	Snow grains
+80	Slight rain showers
+81	Moderate rain showers
+82	Violent rain showers
+85	Slight snow showers
+86	Heavy snow showers
+95	Thunderstorm
+96	Thunderstorm with slight hail *
+97	Heavy thunderstorm
+99	Thunderstorm with heavy hail *
