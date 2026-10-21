@@ -209,6 +209,12 @@ test('getCurrentWeather rejeita campos ou unidades obrigatórias ausentes', asyn
   }
 })
 
+test('getCurrentWeather converte falha de rede em null', async () => {
+  await withMockedFetch(async () => Promise.reject(new TypeError('Falha de rede')), async () => {
+    assert.equal(await getCurrentWeather(locationData), null)
+  })
+})
+
 test('searchWeather executa as duas requisições em ordem e retorna resultado único', async () => {
   const requestedHosts = []
 

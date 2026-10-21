@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clima — QA visual</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import '/src/style.css'
+      import { createWeatherApp } from '/src/ui/weatherApp.ts'
+
+      const result = {
+        location: {
+          name: 'Rio de Janeiro',
+          latitude: -22.90642,
+          longitude: -43.18223,
+          countryCode: 'BR',
+          timezone: 'America/Sao_Paulo',
+        },
+        weather: {
+          time: '2026-10-21T10:30',
+          temperature: 27.3,
+          temperatureUnit: '°C',
+          relativeHumidity: 72,
+          relativeHumidityUnit: '%',
+          apparentTemperature: 25.6,
+          apparentTemperatureUnit: '°C',
+          isDay: true,
+          windSpeed: 17.5,
+          windSpeedUnit: 'km/h',
+          windDirection: 132,
+          windDirectionUnit: '°',
+          precipitationProbability: 0,
+          precipitationProbabilityUnit: '%',
+          weatherCode: 1,
+        },
+      }
+
+      const root = document.querySelector('#app')
+      const app = createWeatherApp(root, async () => result)
+      await app.controller.submit('Rio de Janeiro')
+    </script>
+  </body>
+</html>

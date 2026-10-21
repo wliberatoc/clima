@@ -101,7 +101,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 4 — Interface funcional
 
-### [x] T11 — Criar a estrutura semântica e o formulário
+### [ ] T11 — Criar a estrutura semântica e o formulário
 
 **Referência:** PRD RF-01, 5.3 e 7.4.
 
@@ -109,7 +109,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** o formulário funciona pelo botão e por `Enter`; o campo possui label; o botão é `submit`; a região usa `aria-live="polite"`; e os controles são alcançáveis por teclado.
 
-### [x] T12 — Implementar o empty state
+### [ ] T12 — Implementar o empty state
 
 **Referência:** PRD RF-07 e 7.5.
 
@@ -117,7 +117,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** no carregamento inicial somente o formulário e o empty state aparecem; nenhum valor meteorológico, `undefined`, `null` ou `NaN` é exibido.
 
-### [x] T13 — Validar a entrada do formulário
+### [ ] T13 — Validar a entrada do formulário
 
 **Referência:** PRD RF-01, CA-04 e 5.3.
 
@@ -125,7 +125,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** valor vazio, espaços ou um caractere não chama `searchWeather`; o campo recebe `aria-invalid` e mensagem associada; um termo válido limpa o erro e inicia o fluxo.
 
-### [x] T14 — Implementar o estado de carregamento
+### [ ] T14 — Implementar o estado de carregamento
 
 **Referência:** PRD RF-07, 7.5 e CA-01.
 
@@ -133,7 +133,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** do envio à resolução aparece `Buscando clima…`; o botão permanece desabilitado; a região indica `aria-busy`; não há intervalo entre as requisições; e movimento reduzido é respeitado.
 
-### [x] T15 — Renderizar o resultado completo
+### [ ] T15 — Renderizar o resultado completo
 
 **Referência:** PRD RF-03 a RF-06, 7.2, 7.3, CA-01, CA-05 e CA-06.
 
@@ -141,7 +141,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** um resultado válido exibe todos os campos e unidades exigidos, nome normalizado, data em português, descrição WMO, dia/noite e vento em graus mais ponto cardeal; nenhum valor técnico inválido aparece.
 
-### [x] T16 — Implementar o estado de nenhum resultado
+### [ ] T16 — Implementar o estado de nenhum resultado
 
 **Referência:** PRD RF-07, CA-02 e CA-03.
 
@@ -149,7 +149,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** retorno `null` remove o resultado anterior, exibe exatamente a mensagem de RF-07, reabilita o formulário e deixa o foco em posição previsível.
 
-### [x] T17 — Integrar o fluxo da interface
+### [ ] T17 — Integrar o fluxo da interface
 
 **Referência:** PRD 3, RF-07 e CA-01 a CA-04.
 
@@ -157,7 +157,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** cada envio válido percorre apenas `inicial → loading → sucesso` ou `inicial/resultado → loading → nenhum resultado`; estados não aparecem simultaneamente; e o formulário sempre é restaurado ao final.
 
-### [x] T18 — Proteger buscas concorrentes
+### [ ] T18 — Proteger buscas concorrentes
 
 **Referência:** PRD 6.6.
 
@@ -167,7 +167,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 5 — Apresentação visual
 
-### [ ] T19 — Implementar a base visual
+### [x] T19 — Implementar a base visual
 
 **Referência:** PRD 7.1 e 7.6.
 
@@ -175,7 +175,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** a página tem fundo cinza-escuro; conteúdo centralizado até 800 px; painel branco e arredondado; contraste WCAG AA; e nenhum estilo demonstrativo do Vite.
 
-### [ ] T20 — Estilizar busca e estados de feedback
+### [x] T20 — Estilizar busca e estados de feedback
 
 **Referência:** PRD 7.4, 7.5 e 5.3.
 
@@ -183,7 +183,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** controles têm ao menos 44 px; hover, `focus-visible` e disabled são perceptíveis; estados são reconhecíveis; e o painel não muda bruscamente de dimensão.
 
-### [ ] T21 — Estilizar o resultado em desktop
+### [x] T21 — Estilizar o resultado em desktop
 
 **Referência:** PRD 7.1, 7.2 e 7.3.
 
@@ -191,7 +191,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** em desktop, sidebar e área principal ficam lado a lado no mesmo painel; temperatura é o maior destaque; métricas formam grade 2 × 2; e o layout corresponde ao wireframe do PRD.
 
-### [ ] T22 — Implementar responsividade
+### [x] T22 — Implementar responsividade
 
 **Referência:** PRD 5.1, 7.1, 7.3 e CA-07.
 
