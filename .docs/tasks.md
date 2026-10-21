@@ -67,7 +67,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 3 — Integração com a Open-Meteo
 
-### [ ] T07 — Validar dados externos
+### [x] T07 — Validar dados externos
 
 **Referência:** PRD 5.4 e 6.5.
 
@@ -75,7 +75,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** as validações rejeitam campos ausentes, vazios, `NaN` e tipos incorretos; aceitam todos os campos válidos, inclusive zero; e o build passa.
 
-### [ ] T08 — Implementar `findLocation`
+### [x] T08 — Implementar `findLocation`
 
 **Referência:** PRD RF-01, RF-02, 5.4 e 6.4.
 
@@ -83,7 +83,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** cidade válida retorna `LocationData`; entrada inválida não gera requisição; resultado vazio, dados incompletos, erro HTTP, de rede ou JSON inválido retornam `null`; e a URL contém os parâmetros de RF-02.
 
-### [ ] T09 — Implementar `getCurrentWeather`
+### [x] T09 — Implementar `getCurrentWeather`
 
 **Referência:** PRD RF-03, 5.4, 6.4 e 6.5.
 
@@ -91,7 +91,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** resposta válida retorna `CurrentWeather` completo com unidades; zeros são preservados; parâmetros ou respostas incompletas retornam `null`; e a URL contém todas as variáveis de RF-03.
 
-### [ ] T10 — Implementar `searchWeather`
+### [x] T10 — Implementar `searchWeather`
 
 **Referência:** PRD 3, RF-07 e 6.4.
 
