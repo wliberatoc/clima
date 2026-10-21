@@ -101,7 +101,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 4 — Interface funcional
 
-### [ ] T11 — Criar a estrutura semântica e o formulário
+### [x] T11 — Criar a estrutura semântica e o formulário
 
 **Referência:** PRD RF-01, 5.3 e 7.4.
 
@@ -109,7 +109,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** o formulário funciona pelo botão e por `Enter`; o campo possui label; o botão é `submit`; a região usa `aria-live="polite"`; e os controles são alcançáveis por teclado.
 
-### [ ] T12 — Implementar o empty state
+### [x] T12 — Implementar o empty state
 
 **Referência:** PRD RF-07 e 7.5.
 
@@ -117,7 +117,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** no carregamento inicial somente o formulário e o empty state aparecem; nenhum valor meteorológico, `undefined`, `null` ou `NaN` é exibido.
 
-### [ ] T13 — Validar a entrada do formulário
+### [x] T13 — Validar a entrada do formulário
 
 **Referência:** PRD RF-01, CA-04 e 5.3.
 
@@ -125,7 +125,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** valor vazio, espaços ou um caractere não chama `searchWeather`; o campo recebe `aria-invalid` e mensagem associada; um termo válido limpa o erro e inicia o fluxo.
 
-### [ ] T14 — Implementar o estado de carregamento
+### [x] T14 — Implementar o estado de carregamento
 
 **Referência:** PRD RF-07, 7.5 e CA-01.
 
@@ -133,7 +133,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** do envio à resolução aparece `Buscando clima…`; o botão permanece desabilitado; a região indica `aria-busy`; não há intervalo entre as requisições; e movimento reduzido é respeitado.
 
-### [ ] T15 — Renderizar o resultado completo
+### [x] T15 — Renderizar o resultado completo
 
 **Referência:** PRD RF-03 a RF-06, 7.2, 7.3, CA-01, CA-05 e CA-06.
 
@@ -141,7 +141,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** um resultado válido exibe todos os campos e unidades exigidos, nome normalizado, data em português, descrição WMO, dia/noite e vento em graus mais ponto cardeal; nenhum valor técnico inválido aparece.
 
-### [ ] T16 — Implementar o estado de nenhum resultado
+### [x] T16 — Implementar o estado de nenhum resultado
 
 **Referência:** PRD RF-07, CA-02 e CA-03.
 
@@ -149,7 +149,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** retorno `null` remove o resultado anterior, exibe exatamente a mensagem de RF-07, reabilita o formulário e deixa o foco em posição previsível.
 
-### [ ] T17 — Integrar o fluxo da interface
+### [x] T17 — Integrar o fluxo da interface
 
 **Referência:** PRD 3, RF-07 e CA-01 a CA-04.
 
@@ -157,7 +157,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** cada envio válido percorre apenas `inicial → loading → sucesso` ou `inicial/resultado → loading → nenhum resultado`; estados não aparecem simultaneamente; e o formulário sempre é restaurado ao final.
 
-### [ ] T18 — Proteger buscas concorrentes
+### [x] T18 — Proteger buscas concorrentes
 
 **Referência:** PRD 6.6.
 
@@ -201,7 +201,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 6 — Validação da entrega
 
-### [ ] T23 — Validar acessibilidade
+### [x] T23 — Validar acessibilidade
 
 **Referência:** PRD 5.3 e CA-07.
 
@@ -209,7 +209,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** todo o fluxo funciona apenas com teclado; foco é visível; mensagens e loading são anunciáveis; ícones são acessíveis; informações não dependem só de cor; e não há falha evidente de contraste WCAG AA.
 
-### [ ] T24 — Validar os cenários funcionais
+### [x] T24 — Validar os cenários funcionais
 
 **Referência:** PRD 9 e CA-01 a CA-07.
 
@@ -217,7 +217,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** todos os cenários da seção 9 foram executados e produzem o resultado de seu critério de aceite; nenhuma falha conhecida permanece aberta.
 
-### [ ] T25 — Fazer a revisão técnica final
+### [x] T25 — Fazer a revisão técnica final
 
 **Referência:** PRD CA-08.
 
