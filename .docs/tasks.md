@@ -15,7 +15,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 1 — Fundação
 
-### [ ] T01 — Limpar o projeto inicial do Vite
+### [x] T01 — Limpar o projeto inicial do Vite
 
 **Referência:** PRD 6.1 e CA-08.
 
@@ -23,7 +23,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** nenhum conteúdo demonstrativo do Vite aparece; não existem imports quebrados; e `npm run build` termina com código de saída zero.
 
-### [ ] T02 — Criar a estrutura de módulos
+### [x] T02 — Criar a estrutura de módulos
 
 **Referência:** PRD 6.2.
 
@@ -31,7 +31,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** todos os módulos de 6.2 existem, podem ser importados pelo TypeScript e o build passa.
 
-### [ ] T03 — Definir tipos do domínio e das respostas externas
+### [x] T03 — Definir tipos do domínio e das respostas externas
 
 **Referência:** PRD 6.3 e 6.5.
 
