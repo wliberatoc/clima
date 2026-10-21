@@ -7,6 +7,7 @@ const controllerSource = await readFile(
   new URL('../src/ui/searchController.ts', import.meta.url),
   'utf8',
 )
+const iconsSource = await readFile(new URL('../src/ui/icons.ts', import.meta.url), 'utf8')
 const css = await readFile(new URL('../src/style.css', import.meta.url), 'utf8')
 
 function relativeLuminance(hexColor) {
@@ -64,8 +65,10 @@ test('garante contraste AA nos principais pares de cores', () => {
   assert.ok(contrastRatio('#ffb4ab', '#242932') >= 4.5)
 })
 
-test('não depende de imagens informativas e respeita movimento reduzido', () => {
+test('mantém ícones decorativos e respeita movimento reduzido', () => {
   assert.doesNotMatch(appSource, /createElement\('img'/)
+  assert.match(iconsSource, /setAttribute\('aria-hidden', 'true'\)/)
+  assert.match(iconsSource, /setAttribute\('focusable', 'false'\)/)
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/)
   assert.match(css, /animation:\s*none/)
 })

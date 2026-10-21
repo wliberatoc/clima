@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">CL</title>
+  <rect width="64" height="64" rx="16" fill="#246bfd" />
+  <path
+    fill="#ffffff"
+    d="M29.1 42.8c-2.1 1.4-4.7 2.2-7.6 2.2C13.4 45 8 39.5 8 31.7S13.4 18 21.7 18c2.8 0 5.3.7 7.3 2.1l-2.7 5.2a8.3 8.3 0 0 0-4.5-1.3c-4.4 0-7.2 3.1-7.2 7.7 0 4.5 2.8 7.3 7.4 7.3 1.7 0 3.3-.5 4.7-1.4l2.4 5.2ZM33 18h6.5v20.5H56V44H33V18Z"
+  />
+</svg>

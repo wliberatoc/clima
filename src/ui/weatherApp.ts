@@ -3,6 +3,7 @@ import type { WeatherSearchResult } from '../types/weather.ts'
 import { formatLocalDate } from '../utils/formatDate.ts'
 import { getWeatherDescription } from '../utils/weatherCode.ts'
 import { getWindDirection } from '../utils/windDirection.ts'
+import { createIcon, getWeatherIconName, type MetricIconName } from './icons.ts'
 import {
   createSearchController,
   type SearchController,
@@ -57,11 +58,15 @@ function appendMetric(
   label: string,
   value: string,
   className: string,
+  iconName: MetricIconName,
 ): void {
   const metric = createElement('article', `weather-metric weather-metric--${className}`)
+  const metricHeader = createElement('div', 'weather-metric__header')
+  const metricIcon = createIcon(iconName, 'weather-metric__icon')
   const metricLabel = createElement('h3', 'weather-metric__label', label)
   const metricValue = createElement('p', 'weather-metric__value', value)
-  metric.append(metricLabel, metricValue)
+  metricHeader.append(metricIcon, metricLabel)
+  metric.append(metricHeader, metricValue)
   container.append(metric)
 }
 
@@ -94,33 +99,43 @@ function renderWeatherResult(container: HTMLElement, result: WeatherSearchResult
     'weather-summary__condition',
     getWeatherDescription(weather.weatherCode),
   )
+  const conditionGroup = createElement('div', 'weather-summary__condition-group')
+  const conditionIcon = createIcon(
+    getWeatherIconName(weather.weatherCode, weather.isDay),
+    'weather-summary__condition-icon',
+  )
   const detailsTitle = createElement('h2', 'visually-hidden', 'Detalhes do clima')
   const windDirection = getWindDirection(weather.windDirection) ?? 'Direção desconhecida'
 
-  sidebar.append(temperature, city, date, dayPeriod, condition)
+  conditionGroup.append(conditionIcon, condition)
+  sidebar.append(temperature, city, date, dayPeriod, conditionGroup)
   details.append(detailsTitle)
   appendMetric(
     details,
     'Umidade relativa',
     `${weather.relativeHumidity} ${weather.relativeHumidityUnit}`,
     'humidity',
+    'droplet',
   )
   appendMetric(
     details,
     'Sensação térmica',
     `${weather.apparentTemperature} ${weather.apparentTemperatureUnit}`,
     'apparent-temperature',
+    'thermometer',
   )
   appendMetric(
     details,
     'Probabilidade de precipitação',
     `${weather.precipitationProbability} ${weather.precipitationProbabilityUnit}`,
     'precipitation',
+    'umbrella',
   )
   appendMetric(
     details,
     'Vento',
     `${weather.windSpeed} ${weather.windSpeedUnit} · ${weather.windDirection}${weather.windDirectionUnit} · ${windDirection}`,
+    'wind',
     'wind',
   )
 
