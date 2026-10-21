@@ -41,7 +41,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 ## Fase 2 — Regras puras do domínio
 
-### [ ] T04 — Interpretar o código meteorológico
+### [x] T04 — Interpretar o código meteorológico
 
 **Referência:** PRD RF-05 e CA-06.
 
@@ -49,7 +49,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** cada código de RF-05 retorna sua descrição em português; código não mapeado retorna `Condição desconhecida`; e o build passa.
 
-### [ ] T05 — Converter a direção do vento
+### [x] T05 — Converter a direção do vento
 
 **Referência:** PRD RF-06.
 
@@ -57,7 +57,7 @@ Este arquivo transforma o [PRD](prd.md) em uma fila progressiva de implementaç�
 
 **Critério de aprovação:** 0°, 45°, 90°, 135°, 180°, 225°, 270° e 315° retornam respectivamente N, NE, L, SE, S, SO, O e NO; valores fora de 0–359 são normalizados; e o build passa.
 
-### [ ] T06 — Formatar a data local
+### [x] T06 — Formatar a data local
 
 **Referência:** PRD RF-04.
 
